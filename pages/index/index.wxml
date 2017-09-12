@@ -1,11 +1,10 @@
 <!--index.wxml-->
-<import src="/templates/promotionCell/promotionCell.wxml" />
-<import src="/templates/vipCell/vipCell.wxml"/>
+<import src="/templates/bagList/bagList.wxml" />
 <view class="page">
   <scroll-view scroll-y="true" class="scroll-area">
-    <!--<view class="page">-->
+    <view class="back_ground">
     <view class="images-panel">
-      <swiper autoplay="true" bindchange="swiperChanged" catchtap="showImages" indicator-dots="true">
+      <swiper autoplay="true" bindchange="swiperChanged" catchtap="showHeader" indicator-dots="true" circular="true">
         <block wx:for="{{bannerImages}}" wx:key="item">
           <swiper-item>
             <image class="img-swiper-item" mode="aspectFill" src="{{item}}"></image>
@@ -13,112 +12,146 @@
         </block>
       </swiper>
     </view>
-
-    <view class="tab-panel">
+    <!--<view class="page">-->
+    <view class="tabbar-panel">
       <view class="tabbar">
         <view class="{{tabSelectedIndex == 0?'tabbar-item-selected':'tabbar-item-normal'}} tabbar-item" data-tabid="0" catchtap="selectTab">
-          <image mode="aspectFit" src="/src/images/{{tabSelectedIndex == 0?'notice_selected.png':'notice_normal.png'}}" />
-          <view class="tab-item-text text-vertical-middle-wrapper">
-            最新公告
-          </view>
+          <image mode="aspectFit" src="/src/img/{{tabSelectedIndex == 0?'bestSale_selected.png':'bestSale.png'}}" />
         </view>
         <view class="{{tabSelectedIndex == 1?'tabbar-item-selected':'tabbar-item-normal'}}  tabbar-item" data-tabid="1" catchtap="selectTab">
-          <image mode="aspectFit" src="/src/images/{{tabSelectedIndex == 1?'promotion_selected.png':'promotion_normal.png'}}" />
-          <view class="tab-item-text  text-vertical-middle-wrapper">
-            门店优惠
-          </view>
+          <image mode="aspectFit" src="/src/img/{{tabSelectedIndex == 1?'bestPro_selected.png':'bestPro.png'}}" />
         </view>
         <view class="{{tabSelectedIndex == 2?'tabbar-item-selected':'tabbar-item-normal'}}  tabbar-item" data-tabid="2" catchtap="selectTab">
-          <image mode="aspectFit" src="/src/images/{{tabSelectedIndex == 2?'combos_selected.png':'combos_normal.png'}}" />
-          <view class="tab-item-text  text-vertical-middle-wrapper">
-            超值套餐
-          </view>
+          <image mode="aspectFit" src="/src/img/{{tabSelectedIndex == 2?'fashionPro_selected.png':'fashionPro.png'}}" />
+        </view>
+        <view class="{{tabSelectedIndex == 3?'tabbar-item-selected':'tabbar-item-normal'}}  tabbar-item" data-tabid="3" catchtap="selectTab">
+          <image mode="aspectFit" src="/src/img/{{tabSelectedIndex == 3?'shoeAcc_selected.png':'shoeAcc.png'}}" />
         </view>
       </view>
+      <!-- tabbar end -->
+    </view>
+    <!-- tabbar-panel end -->
+    </view>
+    <view class="tab-panel">
       <view class="tabs">
-
-        <view class="{{tabSelectedIndex == 1?'show':'hide'}} tab-notice tab">
-          <block wx:for="{{notices}}">
-            <template is="promotionCell{{index%2==0?'Even':'Odd'}}" data="{{...item}}"></template>
-          </block>
+        <view class="tab-background-top">
+          <image mode="aspectFit" src="/src/img/con_up_bg.png" />
         </view>
-
-        <view class="{{tabSelectedIndex == 0?'show':'hide'}} tab-promotion tab">
-          <view class="vip-benefit">
-            <image mode="aspectFit" src="http://i4.piimg.com/599607/e95d0283e91909cb.png" />
-            <view class="benefit-text">
-              <view>1.会员爱宠铭牌定制</view>
-              <view>2.会员爱宠洗澡美容专用毛巾</view>
-              <view>3.会员爱宠生日当天可享受霸王餐</view>
-              <view> （ 到店免费领取营养大礼包 ）</view>
+        <!--tab 0  -->
+        <view class="{{tabSelectedIndex == 0?'show':'hide'}} tab">
+          <view class="tab-content">
+            <view class="introduction">
+              <view class="content-logo">
+                  <text>STORE INTRODUCTION \n</text>
+                  <text>门店介绍</text>
+              </view>
+              <view class="intro-bottom">
+                  <text class="introduction-text" space="emsp">{{introduction}}</text>
+              </view>
+              <template is="bagList" data="{{...store_manager}}"></template>
             </view>
           </view>
-          <view class="vip-levels">
-            <view class="vip-promote">
-              <view class="vip-promote-text">会员招募</view>
-            </view>
-            <view class="vip-levels-content">
-              <block wx:for="{{vips}}">
-              <template is="vipCell" data="{{...item}}"></template>
-              </block>
-            </view>
 
+        </view>
+        <!-- tab 0 end -->
+
+        <!-- tab 1     --> 
+        <view class="{{tabSelectedIndex == 1? 'show': 'hide'}} tab">
+          <view class="tab-content bestPro_height">
+            <view class="introduction">
+            <view class="content-logo">
+                  <text>LUXURY GOODS \n</text>
+                  <text>奢侈品</text>
+                  <view wx:for="{{LuxuryList.smallList}}" wx:key="item" class="pro-cell">
+              <image class="fashion_img left_{{index%3}}" catchtap="showImages" mode="aspectFill" data-arr-name="{{LuxuryList.orginalList}}" data-arr-id="{{index}}" src="{{item}}"></image>  
+                  </view>
+              </view>
           </view>
-          
+          </view>
         </view>
+        <!--tab 1 end  -->
 
-        <view class="{{tabSelectedIndex == 2? 'show': 'hide'}} tab-combos tab">
-          <block wx:for="{{combos}}">
-            <template is="promotionCell{{index%2==0? 'Even':'Odd'}}" data="{{...item}}"></template>
-          </block>
+        <!--tab 2 --> 
+        <view class="{{tabSelectedIndex == 2? 'show': 'hide'}} tab">
+          <view class="tab-content tab2_height">
+            <view class="introduction">
+              <view class="content-logo">
+                  <text>LEATHER ZONE \n</text>
+                  <text>真皮专区</text>
+                  <view wx:for="{{fashionProList.smallList}}" wx:key="item" class="pro-cell">
+              <image class="fashion_img left_{{index%3}}" catchtap="showImages" mode="aspectFill" data-arr-name="{{fashionProList.orginalList}}" data-arr-id="{{index}}" src="{{item}}"></image>  
+                  </view>
+              </view>
+            </view>
+          </view>
         </view>
+        <!-- tab 2 end  -->
 
+        <!-- tab 3  -->
+        <view class="{{tabSelectedIndex == 3? 'show': 'hide'}} tab">
+          <view class="tab-content tab3_height">
+            <view class="introduction">
+            <block wx:for="{{shoeAccSrc}}" wx:key="item">
+            <template is="bagList" data="{{...item}}"></template>
+            </block>
+            </view>
+          </view>
+        </view>
+        <!--tab 3 end  -->
       </view>
+      <!-- tabs end -->
     </view>
+    <!-- tab-panel end -->
   </scroll-view>
-
-  <view class="info-panel ">
-    <view class="info-basic-group ">
-      <view class="info-logo info-basic ">
-        <image src="/src/images/logo-mango.jpeg "></image>
-      </view>
-      <view class="info-name-group info-basic ">
-        <view class="info-name-chinese ">
-          {{name}}
+  <view class="tab-background-bottom">
+     <image mode="aspectFit" src="/src/img/con_down_bg.png"></image>
+  </view>
+  <view class="info-panel">
+    <view class="info-basic-root">
+      <view class="info-basic-group">
+        <view class="info-basic-logo">
+          <view class="info-logo">
+            <image class="bottom-logo" mode="aspectFit" src="/src/img/bottom_logo.png"></image>
+            <image class="bottom-content" mode="aspectFit" src="/src/img/bottom_content.png"></image>
+          </view>
         </view>
-        <view class="info-name-english ">
-          {{englishName}}
-        </view>
-      </view>
-      <view class="info-wechat info-basic-right ">
-        <image mode="aspectFit" src="/src/images/wechat.png " catchtap="showCode"></image>
-      </view>
-      <view class="info-phone info-basic-right">
-        <image mode="aspectFit" src="/src/images/phone.png" catchtap="phoneCall"></image>
-        <image mode="aspectFit" class="allday" src="/src/images/24h.png"></image>
-      </view>
 
+        <!-- info-basic-logo end -->
+        <view class="info-phone info-basic-right">
+          <image mode="aspectFit" src="/src/img/bottom_call.png" catchtap="phoneCall" />
+        </view>
+        <view class="info-wechat info-basic-right">
+          <image mode="aspectFit" src="/src/img/bottom_wx.png" catchtap="showCode" />
+        </view>
+
+      </view>
+      <!-- info-basic-group end -->
     </view>
+    <!-- info-basic-root end -->
     <view class="info-location " catchtap="showLocation">
-
       <view class="info-location-left ">
-        <image mode="aspectFit" src="/src/images/location.png "></image>
+        <image mode="aspectFit" src="/src/img/add_icon.png"></image>
         <view class="text-vertical-middle-wrapper ">
           {{location.address}}
         </view>
       </view>
       <view class="right-arrow ">
-        <image mode="aspectFit" src="/src/images/right_arrow.png "></image>
-      </view>
-    </view>
-    <view class="info-open-time ">
-      <view class="info-open-time-left ">
-        <image mode="aspectFit" src="/src/images/time.png "></image>
-        <view class="text-vertical-middle-wrapper ">
-          {{openTime}}
-        </view>
+        <image mode="aspectFit" src="/src/img/add_right.png "></image>
       </view>
 
+      <view class="info-open-time ">
+        <view class="info-open-time-left ">
+          <image mode="aspectFit" src="/src/img/clock.png "></image>
+          <view class="text-vertical-middle-wrapper ">
+            {{openTime}}
+          </view>
+        </view>
+      </view>
+      <!-- info-open-time end -->
     </view>
+    <!-- info-location end -->
+    <view class="scadv">由星云创新工作室提供技术支持</view>
   </view>
+  <!-- info-panel end -->
 </view>
+<!-- page end -->

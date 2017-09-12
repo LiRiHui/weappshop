@@ -1,9 +1,0 @@
-<template name="vipCell">
-  <view class="vip">
-    <image mode="aspectFit" src="{{image}}"></image>
-    <view style="color:{{color}};" class="vip-cell-text">
-      <view class="vip-cell-title vip-text-line">{{title}}</view>
-      <view class="vip-cell-subTitle vip-text-line">{{subTitle}}</view>
-    </view>
-  </view>
-</template>

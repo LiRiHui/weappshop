@@ -1,0 +1,82 @@
+.sale{
+  font-size: 32rpx;
+  height: 200rpx;
+  padding:10rpx;
+  padding-top: 15rpx !important;
+  color: white;
+  border-width: 4rpx;
+  border-bottom-style: dashed;
+  border-bottom-color: #F495A0;
+}
+
+.sale-image{
+  float:left; 
+  /* margin-top:10rpx; */
+  margin-left:5rpx; 
+  margin-right:10rpx;
+  width: 222rpx;
+  height: 180rpx;
+  border-width: 4rpx;
+  border-color: #F296A1;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.sale-text{
+  float:left;
+  width: 445rpx;
+}
+
+.sale-text-line{
+  width: 445rpx;
+  height: 50rpx;
+  color: #63242C;
+  font-size: 26rpx;
+  letter-spacing: 5rpx;
+  line-height: 50rpx;
+}
+
+.sale-category-line{
+  margin-top:10rpx;
+  width: 445rpx;
+  height: 50rpx;
+  font-size: 27rpx;
+}
+
+.sale-category {
+  float: left;
+  background: #F495A0;
+  height: 46rpx;
+  width: 420rpx;
+}
+
+.sale-category image{
+    width: 50rpx;  
+    margin: 7rpx;
+   height: 30rpx; 
+  float: left
+}
+
+.sale-text-category{
+  float: left;
+  line-height: 44rpx;
+  height: 100%;
+  font-size: 28rpx;
+  margin-left:15rpx;
+  color: white;
+}
+
+.sale-text-label{
+  float: left;
+  width: 80rpx;
+}
+
+.sale-text-field-short{
+  float: left;
+  width: 100rpx;
+}
+
+.sale-text-field-long{
+  float: left;
+  width: 150rpx;
+}

@@ -1,0 +1,27 @@
+
+<template name="saleCell">
+  <view class="sale">
+    <image class="sale-image" catchtap="showImage" data-origin="{{origin}}" mode="aspectFill" src="{{image}}"></image>
+    <view class="sale-text">
+      <view class="sale-category-line">
+        <view class="sale-category">
+          <image  mode="aspectFit" src="/src/images/white_claw.png"></image>
+          <view class="sale-text-category">{{category}}</view>
+        </view>
+      </view>
+      <view class="sale-text-line">
+        <view class="sale-text-label">性别:</view>
+        <view class="sale-text-field-short">{{sex?"男孩":"女孩"}}</view>
+        <view class="sale-text-label">年龄:</view>
+        <view class="sale-text-field-long">{{age}}</view>
+      </view>
+      <view class="sale-text-line">
+        <view class="sale-text-label">疫苗:</view>
+        <view class="sale-text-field-long">{{vaccination}}</view>
+        <view class="sale-text-label">售价:</view>
+        <view class="sale-text-field-short">{{price}}</view>
+      </view>
+    </view>
+  </view>
+</template>
+

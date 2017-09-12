@@ -1,0 +1,9 @@
+<template name="bagList">
+<view class="store">
+  <text>{{englistTitle}} \n</text>
+  <text>{{chineseTitle}}</text>
+</view>
+<view wx:for="{{bestStore}}" wx:key="item" class="pro-cell">
+      <image class="store_img left_{{index%4}}" catchtap="showImages" mode="aspectFill" data-arr-name="{{bestStoreOrginal}}" data-arr-id="{{index}}" src="{{item}}"></image>  
+</view>
+</template>

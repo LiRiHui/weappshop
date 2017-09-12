@@ -1,14 +1,22 @@
-@import '/templates/promotionCell/promotionCell.wxss';
-@import '/templates/vipCell/vipCell.wxss';
+@import '/templates/saleCell/saleCell.wxss';
+@import '/templates/roomCell/roomCell.wxss';
+@import '/templates/bagList/bagList.wxss';
 
 
 page{
   height: 100%;
   overflow-x: visible; 
+  background-color: #1d191a;
   font-size: 16px;
   font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .page{
   height: 100%;
+}
+
+.scadv{
+  color: white;
+  text-align: center;
+  font-size: 19rpx;
 }

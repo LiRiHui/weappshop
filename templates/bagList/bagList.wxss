@@ -1,0 +1,15 @@
+.store{
+  display: inline-block;
+}
+
+.store_img{
+  float: left;
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+  height: 153rpx;
+  width: 153rpx;
+}
+
+.left_0{
+  margin-left: 0rpx;
+}

@@ -1,0 +1,10 @@
+<template name="roomCell">
+  <view class="room">
+    <image catchtap="showImage" class="room-image" data-origin="{{image}}" mode="aspectFill" src="{{image}}"></image>
+    <image class="room-claw" src="/src/images/claw.png"></image>
+    <view class="room-cell-text">
+      <view class="room-cell-title room-text-line">{{title}}</view>
+      <view class="room-cell-subTitle room-text-line">{{subTitle}}</view> 
+    </view>
+  </view>
+</template>
